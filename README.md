@@ -7,15 +7,14 @@
 
 With this plugin you can create uml diagrams inside your markdown files:
 
-```markdown
 # UML example:
 
-```plantuml
-@startuml
-Bob -> Alice : hello
-@enduml
-```
-```
+
+    ```plantuml
+    @startuml
+    Bob -> Alice : hello
+    @enduml
+    ```
 
 See [plantuml website](https://plantuml.com) for more details.
 
@@ -46,11 +45,8 @@ const md = require('markdown-it')()
 Options:
   - __openMarker__ - optional, defaults to `@startuml`. String to use as oppening delimiter.
   - __closeMarker__ - optional, defaults to `@enduml`. String to use as closing delimiter.
-  - __generateSource__ - optional, defaults to using public plant-uml server. Generates the `src` property of the image element.
   - __diagramName__ - optional, defaults to `uml`. Name used by generateSoruce to generate diagram tags like `@startuml`, `@startditaa`, etc.
-  - __imageFormat__ - optional, defaults to `svg`. Format used by `generateSource` to generate the `src` of the image element.
   - __render__ - optional, defaults to markdown-it image renderer. Renderer function for opening/closing tokens.
-  - __server__ - optional, defaults to `http://www.plantuml.com/plantuml`. Defines the plantuml server used for image generation.
 
 ## License
 
