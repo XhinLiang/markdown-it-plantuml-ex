@@ -1,4 +1,4 @@
-# markdown-it-plantuml
+# markdown-it-plantuml-ex
 
 [![npm version](https://img.shields.io/npm/v/markdown-it-plantuml-ex.svg)](https://www.npmjs.com/package/markdown-it-plantuml-ex)
 [![CircleCI build](https://img.shields.io/circleci/project/github/xhinliang/markdown-it-plantuml-ex.svg)](https://circleci.com/gh/xhinliang/markdown-it-plantuml/tree/master)
