@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:carbon
-    working_directory: ~/markdown-it-plantuml
+    working_directory: ~/markdown-it-plantuml-ex
     steps:
       - checkout
       - run:
@@ -26,7 +26,7 @@ jobs:
   test:
     docker:
       - image: circleci/node:carbon
-    working_directory: ~/markdown-it-plantuml
+    working_directory: ~/markdown-it-plantuml-ex
     steps:
       - checkout
       - restore_cache:

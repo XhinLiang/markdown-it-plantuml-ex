@@ -1,49 +1,66 @@
 'use strict';
 
-var path = require('path');
-var generate = require('markdown-it-testgen');
 var md = require('markdown-it');
 var plantuml = require('../');
+var assert = require('assert');
+
+var defaultParser = md().use(plantuml);
 
 /*eslint-env mocha*/
 
-describe('markdown-it-plantuml', function () {
-  var defaultParser = md().use(plantuml);
+describe('plantumlEx', function () {
 
-  generate(
-    path.join(__dirname, 'fixtures/default.txt'),
-    { header: true },
-    defaultParser
-  );
 
-  var ditaaParser = md().use(
-    plantuml,
-    {
-      openMarker: '@startditaa',
-      closeMarker: '@endditaa',
-      diagramName: 'ditaa'
-    }
-  );
+  let doc1 = "\n\
+```plantuml \n\
+@startuml \n\
+Bob -> Alice : hello \n\
+@enduml \n\
+``` \n\
+  ";
 
-  generate(
-    path.join(__dirname, 'fixtures/ditaa.txt'),
-    { header: true },
-    ditaaParser
-  );
+  console.log('input:')
+  console.log(doc1);
+  let out1 = defaultParser.render(doc1);
 
-  var pngParser = md().use(plantuml, { imageFormat: 'png' });
+  console.log('output:')
+  console.log(out1);
+  it('should contains svg text', function () {
+    assert.equal(out1.includes('Bob</text>'), true)
+  });
 
-  generate(
-    path.join(__dirname, 'fixtures/png.txt'),
-    { header: true },
-    pngParser
-  );
+});
 
-  var parserWithCustomServer = md().use(plantuml, { server: 'http://example.com/plantuml' });
+describe('plantumlEx2', function () {
 
-  generate(
-    path.join(__dirname, 'fixtures/server.txt'),
-    { header: true },
-    parserWithCustomServer
-  );
+
+  let doc1 = "\n\
+# ThisIsHead1 \n\
+```plantuml \n\
+@startuml \n\
+Bob -> Alice : hello \n\
+@enduml \n\
+``` \n\
+\n\
+**ThisIsBoldText**\n\
+  ";
+
+  console.log('input:')
+  console.log(doc1);
+  let out1 = defaultParser.render(doc1);
+
+  console.log('output:')
+  console.log(out1);
+  
+  it('should contains svg text', function () {
+    assert.equal(out1.includes('Bob</text>'), true)
+    assert.equal(out1.includes('<h1>ThisIsHead1</h1>'), true)
+    assert.equal(out1.includes('<strong>ThisIsBoldText</strong>'), true)
+  });
+
+  it('should contains markdown head and bold text', function () {
+    assert.equal(out1.includes('<h1>ThisIsHead1</h1>'), true)
+    assert.equal(out1.includes('<strong>ThisIsBoldText</strong>'), true)
+  });
+
 });

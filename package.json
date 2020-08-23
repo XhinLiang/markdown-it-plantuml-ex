@@ -1,13 +1,13 @@
 {
   "author": {
-    "name": "Gerardo Munguia",
-    "email": "<gerardomunguiahoyo@gmail.com>",
-    "url": "gmunguia.com"
+    "name": "Xhin Liang",
+    "email": "<xhinliang@gmail.com>",
+    "url": "xhinliang.com"
   },
-  "name": "markdown-it-plantuml",
-  "version": "1.4.0",
-  "description": "Plugin to create block-level uml diagrams for markdown-it markdown parser",
-  "repository": "gmunguia/markdown-it-plantuml",
+  "name": "markdown-it-plantuml-ex",
+  "version": "1.0.0",
+  "description": "Plugin to create block-level uml diagrams for markdown-it markdown parser using offline plantuml.jar",
+  "repository": "xhinliang/markdown-it-plantuml-ex",
   "license": "MIT",
   "scripts": {
     "test": "mocha test/*.js",
@@ -22,6 +22,9 @@
     "uml",
     "plantuml"
   ],
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3"
+  },
   "devDependencies": {
     "eslint": "^5.16.0",
     "markdown-it": "8.4.0",
