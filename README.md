@@ -43,9 +43,9 @@ const md = require('markdown-it')()
 ```
 
 Options:
-  - __openMarker__ - optional, defaults to ````plantuml`. String to use as oppening delimiter.
-  - __closeMarker__ - optional, defaults to `````. String to use as closing delimiter.
-  - __diagramName__ - optional, defaults to `uml`. Name used by generateSoruce to generate diagram tags like `@startuml`, `@startditaa`, etc.
+  - __openMarker__ - optional, defaults to "```plantuml". String to use as oppening delimiter.
+  - __closeMarker__ - optional, defaults to "```" . String to use as closing delimiter.
+  - __diagramName__ - optional, defaults to `uml`.
   - __render__ - optional, defaults to markdown-it image renderer. Renderer function for opening/closing tokens.
 
 ## License
