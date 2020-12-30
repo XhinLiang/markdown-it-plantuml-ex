@@ -5,7 +5,7 @@
 
 > Plugin for creating block-level uml diagrams for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser using offline `plantuml.jar`.
 
-With this plugin you can create uml diagrams inside your markdown files:
+With this plugin you can create uml diagrams inside your markdown files.
 
 # UML example:
 
@@ -23,7 +23,7 @@ See [plantuml website](https://plantuml.com) for more details.
 node.js, browser:
 
 ```bash
-$ npm install markdown-it-plantuml-ex --save
+$ npm i markdown-it-plantuml-ex --save
 ```
 
 ## Basic usage
