@@ -9,7 +9,8 @@ Using this plugin and you can create uml diagrams inside your markdown files.
 
 Differ with [markdown-it-plantuml](https://github.com/gmunguia/markdown-it-plantuml), markdown-it-plantuml-ex is using offline `plantuml.jar` to redner your diagrams, means two things:
 1. You can safety use it in your secret project or some internal docs in your employer, coz markdown-it-plantuml-ex will not upload any of your data to any server, it's just offline;
-2. You can enjoy a better render performance.
+2. You can enjoy a better render performance;
+3. You should install Java by yourself before you start rendering, coz markdown-it-plantuml-ex relies on it.
 
 # UML example:
 
