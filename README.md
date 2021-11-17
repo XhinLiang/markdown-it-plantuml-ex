@@ -5,9 +5,15 @@
 
 > Plugin for creating block-level uml diagrams for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser using offline `plantuml.jar`.
 
-With this plugin you can create uml diagrams inside your markdown files.
+Using this plugin and you can create uml diagrams inside your markdown files. 
+
+Differ with [markdown-it-plantuml](https://github.com/gmunguia/markdown-it-plantuml), markdown-it-plantuml-ex is using offline `plantuml.jar` to redner your diagrams, means two things:
+1. You can safety use it in your secret project or some internal docs in your employer, coz markdown-it-plantuml-ex will not upload any of your data to any server, it's just offline;
+2. You can enjoy a better render performance.
 
 # UML example:
+
+The diagrams you can use in your markdown file just like codes below.
 
 
     ```plantuml
@@ -16,11 +22,11 @@ With this plugin you can create uml diagrams inside your markdown files.
     @enduml
     ```
 
-See [plantuml website](https://plantuml.com) for more details.
+You can visit [plantuml website](https://plantuml.com) for more details.
 
 ## Installation
 
-node.js, browser:
+Just install via npm or any other package manager of Node.
 
 ```bash
 $ npm i markdown-it-plantuml-ex --save
@@ -28,12 +34,16 @@ $ npm i markdown-it-plantuml-ex --save
 
 ## Basic usage
 
+As we all known, markdown-it-plantuml-ex is a plugin of markdown-it, so you should setup markdown-it before you use markdown-it-plantuml-ex.
+
 ```js
 const md = require('markdown-it')()
            .use(require('markdown-it-plantuml-ex'));
 ```
 
 See [markdown-it repository](https://github.com/markdown-it/markdown-it) for more details.
+
+**NOTICE: You should install Java by yourself before you start rendering.**
 
 ## Advanced usage
 
