@@ -1,64 +1,73 @@
 # markdown-it-plantuml-ex
 
 [![npm version](https://img.shields.io/npm/v/markdown-it-plantuml-ex.svg)](https://www.npmjs.com/package/markdown-it-plantuml-ex)
-[![CircleCI build](https://img.shields.io/circleci/project/github/xhinliang/markdown-it-plantuml-ex.svg)](https://circleci.com/gh/xhinliang/markdown-it-plantuml/tree/master)
+[![CI](https://github.com/xhinliang/markdown-it-plantuml-ex/actions/workflows/ci.yml/badge.svg)](https://github.com/xhinliang/markdown-it-plantuml-ex/actions/workflows/ci.yml)
+[![CircleCI build](https://img.shields.io/circleci/project/github/xhinliang/markdown-it-plantuml-ex.svg)](https://circleci.com/gh/xhinliang/markdown-it-plantuml-ex)
 
-> Plugin for creating block-level uml diagrams for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser using offline `plantuml.jar`.
+Plugin for creating block-level UML diagrams in
+[markdown-it](https://github.com/markdown-it/markdown-it) using an offline `plantuml.jar`.
 
-Using this plugin and you can create uml diagrams inside your markdown files. 
+Compared to [markdown-it-plantuml](https://github.com/gmunguia/markdown-it-plantuml), this plugin
+renders diagrams locally.
 
-Differ with [markdown-it-plantuml](https://github.com/gmunguia/markdown-it-plantuml), markdown-it-plantuml-ex use offline `plantuml.jar` to render your diagrams, that means three things:
-1. You can safely use it in your secret project or some internal docs of your employer, because markdown-it-plantuml-ex **will not upload any of your data to any server**, it's totally offline;
-2. You can enjoy a better render performance;
-3. You should install Java by yourself before you start rendering, because markdown-it-plantuml-ex relies on it.
+- Diagram source stays local and is not sent to an external rendering service.
+- Rendering runs against your local Java + PlantUML runtime.
+- Java is required on the machine where markdown is rendered.
 
-# UML example:
+## Requirements
 
-The diagrams you can use in your markdown file just like codes below.
+- Node.js 20+
+- Java installed and available on `PATH`
 
+## UML example
 
-    ```plantuml
-    @startuml
-    Bob -> Alice : hello
-    @enduml
-    ```
+````markdown
+```plantuml
+@startuml
+Bob -> Alice : hello
+@enduml
+```
+````
 
-You can visit [plantuml website](https://plantuml.com) for more details.
+See [plantuml.com](https://plantuml.com) for diagram syntax details.
 
 ## Installation
 
-Just install via npm or any other package manager of Node.
+```bash
+npm install markdown-it-plantuml-ex
+```
+
+## Usage
+
+```js
+const md = require('markdown-it')().use(require('markdown-it-plantuml-ex'));
+```
+
+With custom markers:
+
+````js
+const md = require('markdown-it')().use(require('markdown-it-plantuml-ex'), {
+  openMarker: '```plantuml',
+  closeMarker: '```',
+});
+````
+
+## Development
 
 ```bash
-$ npm i markdown-it-plantuml-ex --save
+npm ci
+npm run verify
 ```
 
-## Basic usage
+Useful scripts:
 
-As we all known, markdown-it-plantuml-ex is a plugin of markdown-it, so you should setup markdown-it before you use markdown-it-plantuml-ex.
-
-```js
-const md = require('markdown-it')()
-           .use(require('markdown-it-plantuml-ex'));
-```
-
-See [markdown-it repository](https://github.com/markdown-it/markdown-it) for more details.
-
-**NOTICE: You should install Java by yourself before you start rendering.**
-
-## Advanced usage
-
-```js
-const md = require('markdown-it')()
-           .use(require('markdown-it-plantuml-ex'), options);
-```
-
-Options:
-  - __openMarker__ - optional, defaults to "```plantuml". String to use as oppening delimiter.
-  - __closeMarker__ - optional, defaults to "```" . String to use as closing delimiter.
-  - __diagramName__ - optional, defaults to `uml`.
-  - __render__ - optional, defaults to markdown-it image renderer. Renderer function for opening/closing tokens.
+- `npm run format` - format repository files with Prettier
+- `npm run format:check` - verify formatting
+- `npm run lint` - run ESLint
+- `npm run lint:fix` - auto-fix lint issues
+- `npm test` - run test suite
+- `npm run verify` - run format check, lint, and tests
 
 ## License
 
-[MIT](https://github.com/xhinliang/markdown-it-plantuml-ex/blob/master/LICENSE)
+[MIT](LICENSE)
