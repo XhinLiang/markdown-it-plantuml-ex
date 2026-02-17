@@ -9,11 +9,19 @@
   "description": "Plugin to create block-level uml diagrams for markdown-it markdown parser using offline plantuml.jar",
   "repository": "xhinliang/markdown-it-plantuml-ex",
   "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "test": "mocha test/*.js",
     "test:report": "npm test -- --reporter mocha-junit-reporter",
     "coverage": "nyc npm test",
-    "coverage:report": "npm run coverage && nyc report --reporter=lcovonly"
+    "coverage:report": "npm run coverage && nyc report --reporter=lcovonly",
+    "verify": "npm run format:check && npm run lint && npm test"
   },
   "keywords": [
     "markdown-it-plugin",
@@ -23,15 +31,17 @@
     "plantuml"
   ],
   "dependencies": {
-    "cheerio": "^1.0.0-rc.3"
+    "cheerio": "^1.1.2"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "markdown-it": "8.4.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "markdown-it": "^14.1.0",
     "markdown-it-testgen": "^0.1.5",
-    "mocha": "4.0.1",
-    "mocha-junit-reporter": "1.17.0",
-    "nyc": "^14.1.1"
+    "mocha": "^11.7.2",
+    "mocha-junit-reporter": "^2.2.1",
+    "nyc": "^17.1.0",
+    "prettier": "^3.6.2"
   },
   "nyc": {
     "exclude": [
